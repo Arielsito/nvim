@@ -45,3 +45,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", {silent = true})
 -- move text
 keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
+
+-- open lazy
+keymap("n", "<leader>l", ":Lazy<CR>", opts)
