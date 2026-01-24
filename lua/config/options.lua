@@ -31,6 +31,7 @@ local options = {
   splitkeep = "cursor",
   mouse = "",
   termguicolors = true,
+  guifont = "Iosevka Nerd Font",
 }
 
 for key, value in pairs(options) do
