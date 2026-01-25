@@ -1,1 +1,1 @@
-Really basic neovim configuration with Lazy
+Basic neovim configuration with Lazy
