@@ -32,6 +32,7 @@ local options = {
   mouse = "",
   termguicolors = true,
   guifont = "Iosevka Nerd Font",
+  clipboard = "unnamedplus",
 }
 
 for key, value in pairs(options) do
