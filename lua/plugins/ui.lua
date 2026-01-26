@@ -51,7 +51,7 @@ return {
     event = "VeryLazy",
     opts = {
 			options = {
-				theme = "tokyonight",
+				theme = "pywal16-nvim",
 				component_separators = "",
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "Outline" },

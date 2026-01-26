@@ -1,8 +1,12 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
+  -- "folke/tokyonight.nvim",
+  -- lazy = false,
+  -- priority = 1000,
+  -- config = function()
+  --   vim.cmd([[colorscheme tokyonight]])
+  -- end
+  "uZer/pywal16.nvim",
   config = function()
-    vim.cmd([[colorscheme tokyonight]])
+    vim.cmd.colorscheme("pywal16")
   end
 }
