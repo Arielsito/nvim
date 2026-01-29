@@ -4,10 +4,22 @@ return {
   priority = 1000,
   opts = {
     style = "night",
-    transparent = true,
+    transparent = false,
     styles = {
       sidebars = "transparent",
       floats = "transparent",
+    },
+  },
+  keys = {
+    {
+      "<leader>bt",
+      function()
+        local conf = require("tokyonight.config")
+        conf.options.transparent = not conf.options.transparent
+        require("tokyonight").setup(conf.options)
+        vim.cmd("colorscheme tokyonight")
+      end,
+      desc = "Toggle background transparency",
     },
   },
   config = function(_, opts)
