@@ -30,7 +30,7 @@ local options = {
   splitkeep = "cursor",
   mouse = "",
   termguicolors = true,
-  guifont = "Iosevka Nerd Font",
+  guifont = "Iosevka Nerd Font:h12",
   clipboard = "unnamedplus",
 }
 
