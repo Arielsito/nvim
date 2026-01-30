@@ -1,5 +1,8 @@
 return {
   {
+    "nvim-tree/nvim-web-devicons", lazy = true,
+  },
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -8,7 +11,14 @@ return {
       bigfile = { enabled = true },
       quickfile = { enabled = true },
       dashboard = {
-        preset = { header =  [[n e o v i m]]},
+        preset = {
+          header =  [[n e o v i m]],
+          keys = {
+            { icon = " ", key = "n", desc = "New file", action = ":ene | startinsert" },
+            { icon = " ", key = "c", desc = "Open config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+            { icon = " ", key = "q", desc = "Quit Neovim", action = ":qa" },
+          },
+        },
         sections = {
           { section = "header" },
           { section = "keys", gap = 1, padding = 1 },
@@ -21,7 +31,7 @@ return {
             limit = 3,
           },
           {
-            icon = " ",
+            icon = " ",
             title = "Projects",
             section = "projects",
             indent = 2,
@@ -50,14 +60,15 @@ return {
 					{
 						"mode",
 						separator = { left = "", right = "" },
-						icon = "󰏒",
+						icon = "󱔎",
 					},
 				},
 				lualine_b = {
 					{
 						"filetype",
-						icons_only = true,
-						padding = { left = 1, right = 0 },
+            fmt = string.upper,
+						icon_only = true,
+            padding = { left = 2, right = 0 },
 					},
 					"filename",
 				},
@@ -65,11 +76,16 @@ return {
 					{
 						"branch",
 						icon = "",
-					},
+          },
 					{
 						"diff",
 						colored = true,
-						symbols = { added = " ", modified = " ", removed = " " },
+						symbols = { added = " ", modified = " ", removed = " " },
+            diff_color = {
+              added = { fg = "#A6E22E" },
+              modified = { fg = "#66D9EF" },
+              removed = { fg = "#F92672" },
+            },
 					},
 				},
 				lualine_x = {
@@ -93,7 +109,7 @@ return {
 							for _, client in pairs(clients) do
 								table.insert(c, client.name)
 							end
-							return " " .. table.concat(c, " | ")
+							return " " .. table.concat(c, "  ")
 						end,
 					},
 				},
