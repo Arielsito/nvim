@@ -50,7 +50,8 @@ return {
           local telescope = require("telescope")
           local function telescope_buffer_dir() return vim.fn.expand("%:p:h") end
           telescope.extensions.file_browser.file_browser({
-            path = "%:p:h",
+            -- path = "%:p:h",
+            path = telescope_buffer_dir(),
             cwd = telescope_buffer_dir(),
             respect_gitignore = false,
             hidden = true,
