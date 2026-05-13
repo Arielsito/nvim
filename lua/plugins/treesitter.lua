@@ -1,9 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter").setup({
       ensure_installed = {
         "c",
         "cpp",
@@ -16,12 +16,18 @@ return {
         "vimdoc",
         "query",
       },
-
-      sync_install = false,
       auto_install = true,
-      autopairs = { enable = true },
-      highlight = { enable = true, additional_vim_regex_highlighting = false },
-      indent = { enable = true },
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "*",
+      callback = function(args)
+        local ft = vim.bo[args.buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft)
+        if lang and vim.treesitter.language.add(lang) then
+          vim.treesitter.start(args.buf, lang)
+        end
+      end
     })
   end
 }
