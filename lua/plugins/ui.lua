@@ -55,15 +55,15 @@ return {
           local ok, C = pcall(function() return require("neopywal").get_colors() end)
           if ok and C then
             local dark_bg = C.background or C.color0 or "#000000"
-            -- local U = require("neopywal.utils.color") -- in case you want to mess with the colors
+            local U = require("neopywal.utils.color") -- in case you want to mess with the colors
             lualine_theme = {
               normal = {
-                a = { fg = dark_bg, bg = C.color6, gui = "none" },
-                b = { fg = C.foreground, bg = C.color0, gui = "none" },
-                c = { fg = dark_bg, bg = C.color3, gui = "none" },
-                x = { fg = dark_bg, bg = C.color3, gui = "none" },
-                y = { fg = C.foreground, bg = C.color0, gui = "none" },
-                z = { fg = dark_bg, bg = C.color6, gui = "none" },
+                a = { fg = dark_bg, bg = C.color3, gui = "none" },
+                b = { fg = C.foreground, bg = U.darken(C.color0, 30), gui = "none" },
+                c = { fg = dark_bg, bg = C.color6, gui = "none" },
+                x = { fg = dark_bg, bg = C.color6, gui = "none" },
+                y = { fg = C.foreground, bg = U.darken(C.color0, 30), gui = "none" },
+                z = { fg = dark_bg, bg = C.color3, gui = "none" },
               },
               insert = {
                 a = { fg = dark_bg, bg = C.color2, gui = "none" },
@@ -127,6 +127,7 @@ return {
                   end
 
                   local c = {}
+
                   for _, client in pairs(clients) do
                     table.insert(c, client.name)
                   end
