@@ -28,6 +28,12 @@ return {
     end
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    lazy = false,
+    config = true,
+  },
+  {
     "RedsXDD/neopywal.nvim",
     name = "neopywal",
     lazy = false,
